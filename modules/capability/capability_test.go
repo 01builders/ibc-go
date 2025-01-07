@@ -14,7 +14,6 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	moduletestutil "github.com/cosmos/cosmos-sdk/types/module/testutil"
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 
 	tmproto "github.com/cometbft/cometbft/proto/tendermint/types"
 
@@ -70,7 +69,7 @@ func (suite *CapabilityTestSuite) NewTestContext() sdk.Context {
 // BeginBlock is then called to populate the new in-memory store using the persisted state.
 func (suite *CapabilityTestSuite) TestInitializeMemStore() {
 	// create a scoped keeper and instantiate a new capability to populate state
-	scopedKeeper := suite.keeper.ScopeToModule(banktypes.ModuleName)
+	scopedKeeper := suite.keeper.ScopeToModule("bank")
 
 	cap1, err := scopedKeeper.NewCapability(suite.ctx, "transfer")
 	suite.Require().NoError(err)
@@ -82,7 +81,7 @@ func (suite *CapabilityTestSuite) TestInitializeMemStore() {
 	newModule := capability.NewAppModule(suite.cdc, *newKeeper, true)
 
 	// reassign the scoped keeper, this will inherit the the mock memstore key used above
-	scopedKeeper = newKeeper.ScopeToModule(banktypes.ModuleName)
+	scopedKeeper = newKeeper.ScopeToModule("bank")
 
 	// seal the new keeper and ensure the in-memory store is not initialized
 	newKeeper.Seal()
