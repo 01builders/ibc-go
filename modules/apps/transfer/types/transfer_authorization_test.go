@@ -5,8 +5,8 @@ import (
 
 	sdkmath "cosmossdk.io/math"
 
+	"cosmossdk.io/x/authz"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/x/authz"
 
 	"github.com/cosmos/ibc-go/v9/modules/apps/transfer/types"
 	ibcerrors "github.com/cosmos/ibc-go/v9/modules/core/errors"

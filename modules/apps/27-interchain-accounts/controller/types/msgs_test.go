@@ -6,9 +6,9 @@ import (
 	"github.com/cosmos/gogoproto/proto"
 	"github.com/stretchr/testify/require"
 
+	banktypes "cosmossdk.io/x/bank/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	moduletestutil "github.com/cosmos/cosmos-sdk/types/module/testutil"
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 
 	ica "github.com/cosmos/ibc-go/v9/modules/apps/27-interchain-accounts"
 	"github.com/cosmos/ibc-go/v9/modules/apps/27-interchain-accounts/controller/types"

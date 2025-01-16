@@ -5,8 +5,8 @@ import (
 	"errors"
 	"strings"
 
+	banktypes "cosmossdk.io/x/bank/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	minttypes "github.com/cosmos/cosmos-sdk/x/mint/types"
 
 	abci "github.com/cometbft/cometbft/abci/types"
